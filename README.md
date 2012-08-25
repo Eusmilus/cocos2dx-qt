@@ -3,7 +3,7 @@ cocos2d-qt
 
 Port of cocos2d-x in [Qt](http://qt.nokia.com/).
 
-[Qt](http://qt.nokia.com/) is a cross-platform application and UI framework
+[Qt](http://qt.nokia.com/) is a cross-platform application and UI framework and licensed user LGPL.
 
 
 cocos2d-x 
