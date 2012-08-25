@@ -1,8 +1,9 @@
 cocos2d-qt
 ==========
 
-Port of cocos2d-x in Qt
-[Qt][http://qt.nokia.com/"] is a cross-platform application and UI framework
+Port of cocos2d-x in [Qt](http://qt.nokia.com/").
+
+[Qt](http://qt.nokia.com/") is a cross-platform application and UI framework
 
 
 cocos2d-x 
