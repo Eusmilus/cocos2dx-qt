@@ -69,3 +69,6 @@ Device-Release/
 
 # Ignore vim swaps
 *.swp
+
+# Ignore Makefile*
+Makefile*
