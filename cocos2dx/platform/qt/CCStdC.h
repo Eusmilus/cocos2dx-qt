@@ -28,16 +28,6 @@ THE SOFTWARE.
 #include "platform/CCPlatformMacros.h"
 #include <float.h>
 
-// for math.h on win32 platform
-
-#if !defined(_USE_MATH_DEFINES)
-    #define _USE_MATH_DEFINES       // make M_PI can be use
-#endif
-
-#if !defined(isnan)
-    #define isnan   _isnan
-#endif
-
 #include <math.h>
 #include <string.h>
 #include <stdarg.h>
@@ -47,17 +37,30 @@ THE SOFTWARE.
 
 // for MIN MAX and sys/time.h on win32 platform
 
-#define MIN     min
-#define MAX     max
+#include <QPainter>
+#include <QFontDatabase>
+#include <QtCore/QDateTime>
+#include <QtCore/qnumeric.h>
 
-// Structure timeval has define in winsock.h, include windows.h for it.
-#include <Windows.h>
+#ifndef MIN
+#define MIN(x,y) (((x) > (y)) ? (y) : (x))
+#endif  // MIN
 
-struct timezone
-{
-    int tz_minuteswest;
-    int tz_dsttime;
-};
+#ifndef MAX
+#define MAX(x,y) (((x) < (y)) ? (y) : (x))
+#endif  // MAX
+
+#if ! defined(isnan)
+    #define isnan   qIsNaN
+#endif
+
+#ifdef _WIN32
+    #include <WinSock.h>
+//struct timeval {
+//    long    tv_sec;         /* seconds */
+//    long    tv_usec;        /* and microseconds */
+//};
+#endif
 
 int CC_DLL gettimeofday(struct timeval *, struct timezone *);
 

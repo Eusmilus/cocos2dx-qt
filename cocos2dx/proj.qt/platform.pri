@@ -14,10 +14,12 @@ HEADERS += \
     ../platform/CCAccelerometerDelegate.h \
     ../platform/qt/CCStdC.h \
     ../platform/qt/CCPlatformDefine.h \
+    ../platform/qt/CCGLWidget.h \
     ../platform/qt/CCGL.h \
     ../platform/qt/CCEGLView.h \
     ../platform/qt/CCApplication.h \
     ../platform/qt/CCAccelerometer.h
+
 
 SOURCES += \
     ../platform/platform.cpp \
@@ -26,8 +28,10 @@ SOURCES += \
     ../platform/CCEGLViewProtocol.cpp \
     ../platform/qt/CCStdC.cpp \
     ../platform/qt/CCImage.cpp \
+    ../platform/qt/CCGLWidget.cpp \
     ../platform/qt/CCFileUtils.cpp \
     ../platform/qt/CCEGLView.cpp \
     ../platform/qt/CCCommon.cpp \
     ../platform/qt/CCApplication.cpp \
     ../platform/qt/CCAccelerometer.cpp
+

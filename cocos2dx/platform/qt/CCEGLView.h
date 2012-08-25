@@ -22,17 +22,23 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
 
-#ifndef __CC_EGLVIEW_WIN32_H__
-#define __CC_EGLVIEW_WIN32_H__
+#ifndef __CC_EGLVIEW_QT_H__
+#define __CC_EGLVIEW_QT_H__
 
-#include <Windows.h>
+#include <QMouseEvent>
+
+#include "CCGL.h"
 #include "platform/CCCommon.h"
 #include "cocoa/CCGeometry.h"
 #include "platform/CCEGLViewProtocol.h"
 
+class GLWidget;
+class QWidget;
+
 NS_CC_BEGIN
 
 class CCEGL;
+class CCTouch;
 
 class CC_DLL CCEGLView : public CCEGLViewProtocol
 {
@@ -49,20 +55,19 @@ public:
     virtual void setFrameSize(float width, float height);
     virtual void setIMEKeyboardState(bool bOpen);
 
+    /* qt */
+    void mouseMove(QMouseEvent *event);
+    void mousePress(QMouseEvent *event);
+    void mouseRelease(QMouseEvent *event);
+    void setWindow(GLWidget *window);
+
 private:
-    virtual bool Create(LPCTSTR pTitle, int w, int h);
+    virtual bool Create(int iWidth, int iHeight);
     bool initGL();
     void destroyGL();
 public:
-    virtual LRESULT WindowProc(UINT message, WPARAM wParam, LPARAM lParam);
 
-    // win32 platform function
-    HWND getHWnd();
     void resize(int width, int height);
-    void centerWindow();
-
-    typedef void (*LPFN_ACCELEROMETER_KEYHOOK)( UINT message,WPARAM wParam, LPARAM lParam );
-    void setAccelerometerKeyHook( LPFN_ACCELEROMETER_KEYHOOK lpfnAccelerometerKeyHook );
 
     // static function
     /**
@@ -74,10 +79,23 @@ protected:
 
 private:
     bool m_bCaptured;
-    HWND m_hWnd;
-    HDC  m_hDC;
-    HGLRC m_hRC;
-    LPFN_ACCELEROMETER_KEYHOOK m_lpfnAccelerometerKeyHook;
+    bool m_bOrientationReverted;
+    bool m_bOrientationInitVertical;
+    CCSet * m_pSet;
+    CCTouch * m_pTouch;
+
+    //store current mouse point for moving, valid if and only if the mouse pressed
+    CCPoint m_mousePoint;
+
+    CCSize m_sSizeInPoint;
+    CCRect m_rcViewPort;
+
+    bool bIsInit;
+//    int m_eInitOrientation;
+    float m_fScreenScaleFactor;
+
+    GLWidget* m_window;
+    bool m_bIsSubWindow;
 };
 
 NS_CC_END

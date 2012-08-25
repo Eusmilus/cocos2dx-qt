@@ -1,7 +1,7 @@
-#ifndef __CC_APPLICATION_WIN32_H__
-#define __CC_APPLICATION_WIN32_H__
+#ifndef __CC_APPLICATION_QT_H__
+#define __CC_APPLICATION_QT_H__
 
-#include <Windows.h>
+#include <QApplication>
 #include "platform/CCCommon.h"
 #include "platform/CCApplicationProtocol.h"
 
@@ -9,10 +9,10 @@ NS_CC_BEGIN
 
 class CCRect;
 
-class CC_DLL CCApplication : public CCApplicationProtocol
+class CC_DLL CCApplication : public CCApplicationProtocol, public QApplication
 {
 public:
-    CCApplication();
+    CCApplication(int argc, char *argv[]);
     virtual ~CCApplication();
 
     /**
@@ -31,9 +31,7 @@ public:
     virtual ccLanguageType getCurrentLanguage();
 
 protected:
-    HINSTANCE           m_hInstance;
-    HACCEL              m_hAccelTable;
-    LARGE_INTEGER       m_nAnimationInterval;
+    long       m_nAnimationInterval;
 
     static CCApplication * sm_pSharedApplication;
 };

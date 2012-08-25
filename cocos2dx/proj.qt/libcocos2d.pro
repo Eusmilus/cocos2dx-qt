@@ -29,8 +29,8 @@ win32 {
     TARGET = libcocos2d
 
     # You may need to change this include directory
-    DEFINES += WIN32
-    DEFINES += _WINDOWS
+#    DEFINES += WIN32
+#    DEFINES += _WINDOWS
     INCLUDEPATH += \
             ../platform/third_party/win32/iconv \
             ../platform/third_party/win32/zlib \
@@ -53,6 +53,8 @@ win32 {
 
     QMAKE_LFLAGS_DEBUG =  /DEBUG /NODEFAULTLIB:libcmt.lib
     QMAKE_LFLAGS_RELEASE = /INCREMENTAL:NO /NODEFAULTLIB:libcmt.lib
+
+    DEFINES += _CRT_SECURE_NO_WARNINGS
 }
 
 unix {
