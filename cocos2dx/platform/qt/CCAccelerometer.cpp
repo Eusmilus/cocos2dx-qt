@@ -168,13 +168,13 @@ void CCAccelerometer::setDelegate(CCAccelerometerDelegate* pDelegate)
     if (pDelegate)
     {
         // Register our handler
-FIXME:
+//        FIXME:
 //        CCEGLView::sharedOpenGLView().setAccelerometerKeyHook( &myAccelerometerKeyHook );
     }
     else
     {
         // De-register our handler
-FIXME:
+//FIXME:
 //        CCEGLView::sharedOpenGLView().setAccelerometerKeyHook( NULL );
         resetAccelerometer();
     }
