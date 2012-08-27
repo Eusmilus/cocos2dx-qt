@@ -316,11 +316,22 @@ void CCEGLView::setContentScaleFactor(float contentScaleFactor)
 
 CCEGLView& CCEGLView::sharedOpenGLView()
 {
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_QT)
+//    CC_ASSERT(s_pMainWindow);
     if (s_pMainWindow == NULL)
     {
         s_pMainWindow = new CCEGLView();
     }
     return *s_pMainWindow;
+
+#else
+    static CCEGLView* s_pEglView = NULL;
+    if (s_pEglView == NULL)
+    {
+        s_pEglView = new CCEGLView();
+    }
+    return *s_pEglView;
+#endif
 }
 
 NS_CC_END

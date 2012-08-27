@@ -143,6 +143,15 @@ THE SOFTWARE.
     #include "platform/android/CCStdC.h"
 #endif // CC_TARGET_PLATFROM == CC_PLATFORM_ANDROID
 
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_QT)
+#include "platform/qt/CCAccelerometer.h"
+#include "platform/qt/CCApplication.h"
+#include "platform/qt/CCEGLView.h"
+#include "platform/qt/CCGL.h"
+#include "platform/qt/CCPlatformDefine.h"
+#include "platform/qt/CCStdC.h"
+#endif // CC_TARGET_PLATFROM == CC_PLATFORM_QT
+
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
 #include "platform/win32/CCAccelerometer.h"
 #include "platform/win32/CCApplication.h"

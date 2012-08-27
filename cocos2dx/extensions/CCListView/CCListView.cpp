@@ -2043,7 +2043,7 @@ void CCListView::ccTouchEnded(CCTouch* touch, CCEvent* event)
 
     m_fActionDuration = ND_LISTVIEW_ACTION_INTERVAL;
     clock_t timeElapse = clock() - m_timeTouchBegan;
-#if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32) && (CC_TARGET_PLATFORM != CC_PLATFORM_MAC)
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32) && (CC_TARGET_PLATFORM != CC_PLATFORM_MAC) && (CC_TARGET_PLATFORM != CC_PLATFORM_QT)
     // It will take more time on mobile platform, this parameter may need to be adjusted according to the platform you use.
     timeElapse /= 200;
 #endif
