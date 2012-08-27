@@ -34,9 +34,13 @@ INCLUDEPATH += ../../cocos2dx/platform \
 
 HEADERS += \
     ../Classes/HelloWorldScene.h \
-    ../Classes/AppDelegate.h
+    ../Classes/AppDelegate.h \
+    ../Classes/widget.h \
+    ../../cocos2dx/platform/qt/CCGLWidget.h
 
 SOURCES += \
     ../Classes/HelloWorldScene.cpp \
     ../Classes/AppDelegate.cpp \
-    main.cpp
+    main.cpp \
+    ../Classes/widget.cpp \
+    ../../cocos2dx/platform/qt/CCGLWidget.cpp
